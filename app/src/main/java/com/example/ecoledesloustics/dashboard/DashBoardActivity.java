@@ -72,7 +72,6 @@ public class DashBoardActivity extends AppCompatActivity {
                 if (scores == null) {
                     ScoresTrackerModel newScores = new ScoresTrackerModel(userModel.getId());
                     mDb.getAppDatabase().scoresDAO().insert(newScores);
-
                     scores = mDb.getAppDatabase()
                             .scoresDAO()
                             .getScoreFromUserId(userModel.getId());

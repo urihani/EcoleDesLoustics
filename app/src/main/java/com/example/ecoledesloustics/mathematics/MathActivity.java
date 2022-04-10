@@ -287,8 +287,10 @@ public class MathActivity extends AppCompatActivity {
                 if (!updatedScores.getMathCompleted().contains(mathCatModel.getId())) {
                     updatedMathCompleted.add(mathCatModel.getId());
                     updatedScores.setMathCompleted(updatedMathCompleted);
-                    updatedScores.computeMathScore();
-                    mDb.getAppDatabase().scoresDAO().update(updatedScores);
+                    if (!userModel.getFirstName().equals("Anonyme")){
+                        updatedScores.computeMathScore();
+                        mDb.getAppDatabase().scoresDAO().update(updatedScores);
+                    }
                 }
 
                 return updatedScores;
