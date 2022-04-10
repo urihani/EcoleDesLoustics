@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">L\'école des loustics</string>
+    <string name="header_desc">header</string>
+    <string name="register_button">s\'inscrire</string>
+    <string name="dashboard_desc">Apprends de nouvelles choses en t\'amusant !</string>
+    <string name="change_avatar">Change ton avatar : </string>
+    <string name="progress_desc">Tes progrès : </string>
+    <string name="mathematics">Mathématiques</string>
+    <string name="culture">Culture générale</string>
+    <string name="geo">Géographie</string>
+    <string name="jeux">Logique</string>
+    <string name="signout_button">Déconnexion</string>
+    <string name="delete_button">Supprimer</string>
+    <string name="validate_button">Valider</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom</string>
+    <string name="multiplications">Multiplications</string>
+    <string name="timed_multiplications">Multiplications chronométrées</string>
+    <string name="additions">Additions</string>
+    <string name="timed_additions">Additions chronométrées</string>
+    <string name="substractions">Soustractions</string>
+    <string name="timed_substractions">Soustractions chronométrées</string>
+    <string name="divisions">Divisions</string>
+    <string name="timed_divisions">Divisions chronométrées</string>
+    <string name="next">Suivant</string>
+    <string name="avatar">Choisis ton avatar !</string>
+    <string name="go">Go !</string>
+    <string name="win">Gagné !</string>
+    <string name="lose">Perdu...</string>
+    <string name="home">RETOUR A L\'ACCUEIL</string>
+    <string name="choice">CHOISIR UN EXERCICE</string>
+    <string name="retry">REESSAYER</string>
+    <string name="classic">Classique</string>
+    <string name="timed">Chronométré</string>
+    <string name="memory">Mémoire</string>
+</resources>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".games.MemoryActivity">
+
+    <ImageView
+        android:id="@+id/idIVHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/header_desc"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_wave_orange" />
+
+    <ImageButton
+        android:id="@+id/idIBPrevious"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_previous"
+        android:tint="@color/orange_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idIVHeader" />
+
+    <ImageButton
+        android:id="@+id/idIBUser"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_user"
+        android:tint="@color/orange_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idIVHeader" />
+
+    <TextView
+        android:id="@+id/idTVCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/memory"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/idIBPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/idIBPrevious" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer0"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintStart_toStartOf="@+id/idTVCategory"
+        app:layout_constraintTop_toBottomOf="@+id/idTVTime" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer0"
+        app:layout_constraintEnd_toStartOf="@+id/idBTAnswer2"
+        app:layout_constraintStart_toEndOf="@+id/idBTAnswer0"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer0"
+        app:layout_constraintEnd_toEndOf="@+id/idIBUser"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer0"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer0"
+        app:layout_constraintTop_toBottomOf="@+id/idBTAnswer0" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer4"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer3"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer1"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer3" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer5"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer4"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer2"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer4" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer6"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer3"
+        app:layout_constraintTop_toBottomOf="@+id/idBTAnswer3" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer7"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer6"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer4"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer6" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer8"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer7"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer5"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer7" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer9"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer6"
+        app:layout_constraintTop_toBottomOf="@+id/idBTAnswer6" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer10"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer9"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer7"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer9" />
+
+    <ImageButton
+        android:id="@+id/idBTAnswer11"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:textSize="20sp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_card"
+        app:layout_constraintBottom_toBottomOf="@+id/idBTAnswer10"
+        app:layout_constraintStart_toStartOf="@+id/idBTAnswer8"
+        app:layout_constraintTop_toTopOf="@+id/idBTAnswer10" />
+
+    <TextView
+        android:id="@+id/idTVTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:text="Retrouve les paires d'images"
+        app:layout_constraintStart_toStartOf="@+id/idTVCategory"
+        app:layout_constraintTop_toBottomOf="@+id/idTVCategory" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/idBTGo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:text="@string/go"
+        android:textSize="38sp"
+        app:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/idPBTime"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="30"
+        android:progress="30"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVTitle" />
+
+    <TextView
+        android:id="@+id/idTVTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="30s"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/idIBPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/idPBTime" />
+</androidx.constraintlayout.widget.ConstraintLayout>

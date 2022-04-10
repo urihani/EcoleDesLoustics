@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mathematics.MathActivity">
+
+    <ImageView
+        android:id="@+id/idIVHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/header_desc"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_wave_orange" />
+
+    <ImageButton
+        android:id="@+id/idIBPrevious"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_previous"
+        android:tint="@color/orange_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idIVHeader" />
+
+    <ImageButton
+        android:id="@+id/idIBUser"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_user"
+        android:tint="@color/orange_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idIVHeader" />
+
+    <TextView
+        android:id="@+id/idTVCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/mathematics"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/idIBPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/idIBPrevious" />
+
+    <TextView
+        android:id="@+id/idTVPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="1/10"
+        app:layout_constraintEnd_toEndOf="@+id/idIBUser"
+        app:layout_constraintTop_toBottomOf="@+id/idPBTime" />
+
+    <TextView
+        android:id="@+id/idTVTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="30s"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/idIBPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/idPBTime" />
+
+    <TextView
+        android:id="@+id/idTVOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="center"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVPage" />
+
+    <TextView
+        android:id="@+id/idTVEqual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="="
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/idTVOperation"
+        app:layout_constraintStart_toStartOf="@+id/idTVOperation"
+        app:layout_constraintTop_toBottomOf="@+id/idTVOperation" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/idBTGo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:text="@string/go"
+        android:textSize="38sp"
+        app:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/idPBTime"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="30"
+        android:progress="30"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVCategory" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVEqual">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/idBTAnswer0"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="Button"
+                app:backgroundTint="#03A9F4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/idBTAnswer1"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:text="Button"
+                app:backgroundTint="#4CAF50" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/idBTAnswer2"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:text="Button"
+                app:backgroundTint="#9C27B0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/idBTAnswer3"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:text="Button"
+                app:backgroundTint="#FF5722" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/idTVAnswers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVOperation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".settings.SettingsActivity">
+
+    <ImageView
+        android:id="@+id/idIVHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/header_desc"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_wave_orange" />
+
+    <ImageButton
+        android:id="@+id/idIBPrevious"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_previous"
+        android:tint="@color/orange_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idIVHeader" />
+
+    <TextView
+        android:id="@+id/idTVFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/idIBPrevious"
+        app:layout_constraintTop_toBottomOf="@+id/idIBPrevious" />
+
+    <!--    avatar-->
+    <ImageView
+        android:id="@+id/idIVProfileImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVFirstName"
+        app:srcCompat="@drawable/ic_anonymity" />
+
+    <TextView
+        android:id="@+id/idTVChangeAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_avatar"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/idIBcamera"
+        app:layout_constraintStart_toStartOf="@+id/idTVFirstName"
+        app:layout_constraintTop_toTopOf="@+id/idIBcamera" />
+
+    <ImageButton
+        android:id="@+id/idIBcamera"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintEnd_toEndOf="@+id/idIVProfileImage"
+        app:layout_constraintStart_toStartOf="@+id/idIVProfileImage"
+        app:layout_constraintTop_toBottomOf="@+id/idIVProfileImage" />
+
+    <!--Maths progress-->
+    <TextView
+        android:id="@+id/idTVMaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/mathematics"
+        app:layout_constraintStart_toStartOf="@+id/idTVChangeAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/idIBcamera" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/idPBMathsProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="8dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        app:indicatorColor="@color/blue_200"
+        app:indicatorSize="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/idTVMaths"
+        app:layout_constraintStart_toStartOf="@+id/idTVMaths"
+        app:layout_constraintTop_toBottomOf="@+id/idTVMaths" />
+
+    <TextView
+        android:id="@+id/idTVMathsPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/idPBMathsProgress"
+        android:layout_alignTop="@+id/idPBMathsProgress"
+        android:layout_alignRight="@+id/idPBMathsProgress"
+        android:layout_alignBottom="@+id/idPBMathsProgress"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="100 %"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/idPBMathsProgress"
+        app:layout_constraintEnd_toEndOf="@+id/idPBMathsProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBMathsProgress"
+        app:layout_constraintTop_toTopOf="@+id/idPBMathsProgress" />
+
+    <!--general culture progress-->
+    <TextView
+        android:id="@+id/idTVQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/culture"
+        app:layout_constraintEnd_toEndOf="@+id/idIBcamera"
+        app:layout_constraintStart_toStartOf="@+id/idIBcamera"
+        app:layout_constraintTop_toTopOf="@+id/idTVMaths" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/idPBCultureProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="8dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        app:indicatorColor="@color/blue_200"
+        app:indicatorSize="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/idTVQuiz"
+        app:layout_constraintStart_toStartOf="@+id/idTVQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/idTVQuiz" />
+
+    <TextView
+        android:id="@+id/idTVCulturePercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/idPBCultureProgress"
+        android:layout_alignTop="@+id/idPBCultureProgress"
+        android:layout_alignRight="@+id/idPBCultureProgress"
+        android:layout_alignBottom="@+id/idPBCultureProgress"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="100 %"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/idPBCultureProgress"
+        app:layout_constraintEnd_toEndOf="@+id/idPBCultureProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBCultureProgress"
+        app:layout_constraintTop_toTopOf="@+id/idPBCultureProgress" />
+
+    <!--geography progress-->
+    <TextView
+        android:id="@+id/idTVGeography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/geo"
+        app:layout_constraintEnd_toEndOf="@+id/idPBGeographyProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBGeographyProgress"
+        app:layout_constraintTop_toTopOf="@+id/idTVQuiz" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/idPBGeographyProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        app:indicatorColor="@color/blue_200"
+        app:indicatorSize="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVGeography" />
+
+    <TextView
+        android:id="@+id/idTVGeographyPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/idPBGeographyProgress"
+        android:layout_alignTop="@+id/idPBGeographyProgress"
+        android:layout_alignRight="@+id/idPBGeographyProgress"
+        android:layout_alignBottom="@+id/idPBGeographyProgress"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="100 %"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/idPBGeographyProgress"
+        app:layout_constraintEnd_toEndOf="@+id/idPBGeographyProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBGeographyProgress"
+        app:layout_constraintTop_toTopOf="@+id/idPBGeographyProgress" />
+
+    <!--logic progress-->
+    <TextView
+        android:id="@+id/idTVLogic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/jeux"
+        app:layout_constraintEnd_toEndOf="@+id/idPBLogicProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBLogicProgress"
+        app:layout_constraintTop_toBottomOf="@+id/idPBCultureProgress" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/idPBLogicProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="8dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        app:indicatorColor="@color/blue_200"
+        app:indicatorSize="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/idPBCultureProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBCultureProgress"
+        app:layout_constraintTop_toBottomOf="@+id/idTVLogic" />
+
+    <TextView
+        android:id="@+id/idTVLogicPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/idPBLogicProgress"
+        android:layout_alignTop="@+id/idPBLogicProgress"
+        android:layout_alignRight="@+id/idPBLogicProgress"
+        android:layout_alignBottom="@+id/idPBLogicProgress"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="100 %"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/idPBLogicProgress"
+        app:layout_constraintEnd_toEndOf="@+id/idPBLogicProgress"
+        app:layout_constraintStart_toStartOf="@+id/idPBLogicProgress"
+        app:layout_constraintTop_toTopOf="@+id/idPBLogicProgress" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/idBTSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/orange_200"
+        android:text="@string/signout_button"
+        app:layout_constraintBottom_toTopOf="@+id/idBTDelete"
+        app:layout_constraintEnd_toEndOf="@+id/idBTDelete"
+        app:layout_constraintStart_toStartOf="@+id/idBTDelete" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/idBTDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="@string/delete_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
