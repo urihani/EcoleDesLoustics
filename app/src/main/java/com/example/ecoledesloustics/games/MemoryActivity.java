@@ -28,6 +28,7 @@ import com.example.ecoledesloustics.settings.SettingsActivity;
 import com.example.ecoledesloustics.users_data.UserModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MemoryActivity extends AppCompatActivity {
     private UserModel userModel;
@@ -46,6 +47,7 @@ public class MemoryActivity extends AppCompatActivity {
     boolean turnIsOver = false;
     ImageButton firstCard;
     ImageButton secondCard;
+    List<ImageButton> disabledCards;
 
     ImageButton answer0, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, answer11;
     ImageButton[] cards;
@@ -58,6 +60,8 @@ public class MemoryActivity extends AppCompatActivity {
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
+
+        disabledCards = new ArrayList<>();
 
         getObjectsFromIntent();
         makeNewGame();
@@ -140,6 +144,12 @@ public class MemoryActivity extends AppCompatActivity {
             timer.cancel();
             timer = null;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        stopTimer();
+        finish();
     }
 
     private void makeTimerVisible() {
@@ -244,14 +254,29 @@ public class MemoryActivity extends AppCompatActivity {
         for (ImageButton btn : cards) {
             btn.setEnabled(true);
         }
+        if (!disabledCards.isEmpty()){
+            for (ImageButton btn : disabledCards) {
+                btn.setEnabled(false);
+            }
+        }
     }
 
     private void manageCorrectAnswer() {
         game.addGoodAnswer();
-        firstCard.setEnabled(false);
-        secondCard.setEnabled(false);
-        turnIsOver = false;
-        clicked = 0;
+        if (!disabledCards.contains(firstCard) || !disabledCards.contains(secondCard)){
+            disabledCards.add(firstCard);
+            disabledCards.add(secondCard);
+        }
+        disableAllCards();
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                enableAllCards();
+                turnIsOver = false;
+                clicked = 0;
+            }
+        }, 1000);
     }
 
     private void setSecondImage(int finalI) {
