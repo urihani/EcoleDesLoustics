@@ -255,6 +255,12 @@ public class MathActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        stopTimer();
+        finish();
+    }
+
     private void resetExercise() {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
