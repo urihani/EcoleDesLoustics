@@ -26,7 +26,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:src="@drawable/ic_user"
-        android:tint="@color/orange_700"
+        android:tint="@color/orange_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idIVHeader" />
 
