@@ -50,4 +50,17 @@ public class Converters {
         Gson gson = new Gson();
         return gson.toJson(map);
     }
+
+    @TypeConverter
+    public static HashMap<Long, Boolean> fromStringMapCompleted(String value) {
+        Type mapType = new TypeToken<HashMap<Long, Boolean>>() {
+        }.getType();
+        return new Gson().fromJson(value, mapType);
+    }
+
+    @TypeConverter
+    public static String fromMapCompleted(HashMap<Long, Boolean> map) {
+        Gson gson = new Gson();
+        return gson.toJson(map);
+    }
 }

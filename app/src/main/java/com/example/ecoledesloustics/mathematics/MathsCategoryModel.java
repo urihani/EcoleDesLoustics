@@ -17,8 +17,8 @@ public class MathsCategoryModel implements Parcelable {
                               int totalQuestions, boolean isTimed, int secondsRemaining
             , String category) {
         this.img = img;
-        this.firstUpperLimit = firstUpperLimit;
-        this.secondUpperLimit = secondUpperLimit;
+        this.firstUpperLimit = firstUpperLimit + 1;
+        this.secondUpperLimit = secondUpperLimit + 1;
         this.totalQuestions = totalQuestions;
         this.isTimed = isTimed;
         this.category = category;

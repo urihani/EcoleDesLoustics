@@ -54,28 +54,36 @@ public class MathsCategoryActivity extends AppCompatActivity {
         // adding data to multiply activity
         multiplyCategoryRV = findViewById(R.id.idRVmultiplyCategory);
         multiplyCategoryModel = new ArrayList<>();
-        multiplyCategoryModel.add(new MathsCategoryModel(0, R.drawable.ic_easy, 3, 3, 5, false, 0,
+        multiplyCategoryModel.add(new MathsCategoryModel(0, R.drawable.ic_easy, 2, 2, 5, false, 0,
                 "Multiplications"));
-        multiplyCategoryModel.add(new MathsCategoryModel(1, R.drawable.ic_easy, 3, 6, 5, false, 0,
-                "Multiplications"));
-        multiplyCategoryModel.add(new MathsCategoryModel(2, R.drawable.ic_medium, 6, 6, 10, false
+        multiplyCategoryModel.add(new MathsCategoryModel(1, R.drawable.ic_medium, 4, 4, 10, false
                 , 0,
                 "Multiplications"));
-        multiplyCategoryModel.add(new MathsCategoryModel(3, R.drawable.ic_medium, 8, 8, 10, false
+        multiplyCategoryModel.add(new MathsCategoryModel(2, R.drawable.ic_medium, 5, 5, 10, false
                 , 0,
                 "Multiplications"));
-        multiplyCategoryModel.add(new MathsCategoryModel(4, R.drawable.ic_hard, 11, 11, 10, false
+        multiplyCategoryModel.add(new MathsCategoryModel(3, R.drawable.ic_hard, 6, 6, 10, false
                 , 0,
                 "Multiplications"));
-        multiplyCategoryModel.add(new MathsCategoryModel(5, R.drawable.ic_hard, 11, 11, 20, false
+        multiplyCategoryModel.add(new MathsCategoryModel(4, R.drawable.ic_hard, 7, 7, 15, false
                 , 0,
                 "Multiplications"));
-        multiplyCategoryModel.add(new MathsCategoryModel(6, R.drawable.ic_hard, 11, 11, 30, false
+        multiplyCategoryModel.add(new MathsCategoryModel(5, R.drawable.ic_hard, 8, 8, 15, false
+                , 0,
+                "Multiplications"));
+        multiplyCategoryModel.add(new MathsCategoryModel(6, R.drawable.ic_hard, 9, 9, 15, false
+                , 0,
+                "Multiplications"));
+        multiplyCategoryModel.add(new MathsCategoryModel(7, R.drawable.ic_hard, 10, 10, 20, false
+                , 0,
+                "Multiplications"));
+        multiplyCategoryModel.add(new MathsCategoryModel(8, R.drawable.ic_hard, 11, 11, 20, false
                 , 0,
                 "Multiplications"));
 
         // we are initializing our adapter class and passing our arraylist to it.
-        MathsCategoryAdapter multiplyCategoryAdapter = new MathsCategoryAdapter(this, multiplyCategoryModel, userModel);
+        MathsCategoryAdapter multiplyCategoryAdapter = new MathsCategoryAdapter(this,
+                multiplyCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -89,12 +97,13 @@ public class MathsCategoryActivity extends AppCompatActivity {
         // adding data to timed multiply activity
         timedMultiplyCategoryRV = findViewById(R.id.idRVTimedMultiplyCategory);
         timedMultiplyCategoryModel = new ArrayList<>();
-        timedMultiplyCategoryModel.add(new MathsCategoryModel(7, R.drawable.ic_easy, 2, 2, 10,
-                true, 31,
-                "Multiplications chronométrées"));
+//        timedMultiplyCategoryModel.add(new MathsCategoryModel(7, R.drawable.ic_easy, 2, 2, 10,
+//                true, 31,
+//                "Multiplications chronométrées"));
 
         // we are initializing our adapter class and passing our arraylist to it.
-        MathsCategoryAdapter timedMultiplyCategoryAdapter = new MathsCategoryAdapter(this, timedMultiplyCategoryModel, userModel);
+        MathsCategoryAdapter timedMultiplyCategoryAdapter = new MathsCategoryAdapter(this,
+                timedMultiplyCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -108,16 +117,16 @@ public class MathsCategoryActivity extends AppCompatActivity {
         // adding data to additions activity
         additionsCategoryRV = findViewById(R.id.idRVAdditionsCategory);
         additionsCategoryModel = new ArrayList<>();
-        additionsCategoryModel.add(new MathsCategoryModel(8, R.drawable.ic_easy, 2, 2, 10, false,
-                0,
-                "Additions"));
-        additionsCategoryModel.add(new MathsCategoryModel(9, R.drawable.ic_easy, 3, 3, 10, false,
-                0,
-                "Additions"));
+//        additionsCategoryModel.add(new MathsCategoryModel(8, R.drawable.ic_easy, 2, 2, 10, false,
+//                0,
+//                "Additions"));
+//        additionsCategoryModel.add(new MathsCategoryModel(9, R.drawable.ic_easy, 3, 3, 10, false,
+//                0,
+//                "Additions"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         MathsCategoryAdapter additionsCategoryAdapter = new MathsCategoryAdapter(this,
-                additionsCategoryModel, userModel);
+                additionsCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -132,16 +141,16 @@ public class MathsCategoryActivity extends AppCompatActivity {
         // adding data to timed additions activity
         timedAdditionsCategoryRV = findViewById(R.id.idRVTimedAdditionsCategory);
         timedAdditionsCategoryModel = new ArrayList<>();
-        timedAdditionsCategoryModel.add(new MathsCategoryModel(10, R.drawable.ic_easy, 2, 2, 10,
-                true, 31,
-                "Additions chronométrées"));
-        timedAdditionsCategoryModel.add(new MathsCategoryModel(11, R.drawable.ic_easy, 3, 3, 10,
-                true, 31,
-                "Additions chronométrées"));
+//        timedAdditionsCategoryModel.add(new MathsCategoryModel(10, R.drawable.ic_easy, 2, 2, 10,
+//                true, 31,
+//                "Additions chronométrées"));
+//        timedAdditionsCategoryModel.add(new MathsCategoryModel(11, R.drawable.ic_easy, 3, 3, 10,
+//                true, 31,
+//                "Additions chronométrées"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         MathsCategoryAdapter timedAdditionsCategoryAdapter = new MathsCategoryAdapter(this,
-                timedAdditionsCategoryModel, userModel);
+                timedAdditionsCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -156,16 +165,16 @@ public class MathsCategoryActivity extends AppCompatActivity {
         // adding data to substractions activity
         substractionsCategoryRV = findViewById(R.id.idRVSubstractionsCategory);
         substractionsCategoryModel = new ArrayList<>();
-        substractionsCategoryModel.add(new MathsCategoryModel(12, R.drawable.ic_easy, 2, 2, 10,
-                false, 0,
-                "Soustractions"));
-        substractionsCategoryModel.add(new MathsCategoryModel(13, R.drawable.ic_easy, 3, 3, 10,
-                false, 0,
-                "Soustractions"));
+//        substractionsCategoryModel.add(new MathsCategoryModel(12, R.drawable.ic_easy, 2, 2, 10,
+//                false, 0,
+//                "Soustractions"));
+//        substractionsCategoryModel.add(new MathsCategoryModel(13, R.drawable.ic_easy, 3, 3, 10,
+//                false, 0,
+//                "Soustractions"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         MathsCategoryAdapter substractionsCategoryAdapter = new MathsCategoryAdapter(this,
-                substractionsCategoryModel, userModel);
+                substractionsCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -180,16 +189,16 @@ public class MathsCategoryActivity extends AppCompatActivity {
         // adding data to timed substractions activity
         timedSubstractionsCategoryRV = findViewById(R.id.idRVTimedSubstractionsCategory);
         timedSubstractionsCategoryModel = new ArrayList<>();
-        timedSubstractionsCategoryModel.add(new MathsCategoryModel(14, R.drawable.ic_easy, 2, 2, 10,
-                true, 31,
-                "Soustractions chronométrées"));
-        timedSubstractionsCategoryModel.add(new MathsCategoryModel(15, R.drawable.ic_easy, 3, 3, 10,
-                true, 31,
-                "Soustractions chronométrées"));
+//        timedSubstractionsCategoryModel.add(new MathsCategoryModel(14, R.drawable.ic_easy, 2, 2, 10,
+//                true, 31,
+//                "Soustractions chronométrées"));
+//        timedSubstractionsCategoryModel.add(new MathsCategoryModel(15, R.drawable.ic_easy, 3, 3, 10,
+//                true, 31,
+//                "Soustractions chronométrées"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         MathsCategoryAdapter timedSubstractionsCategoryAdapter = new MathsCategoryAdapter(this,
-                timedSubstractionsCategoryModel, userModel);
+                timedSubstractionsCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical

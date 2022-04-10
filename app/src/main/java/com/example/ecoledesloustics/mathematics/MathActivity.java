@@ -77,8 +77,6 @@ public class MathActivity extends AppCompatActivity {
                 if (game.checkEndGame()) {
                     if (game.checkWin()) {
                         updateScores();
-                        stopTimer();
-                        goToWinActivity();
                     } else {
                         disableAnswerButtons();
                         stopTimer();
@@ -288,6 +286,7 @@ public class MathActivity extends AppCompatActivity {
                     updatedMathCompleted.add(mathCatModel.getId());
                     updatedScores.setMathCompleted(updatedMathCompleted);
                     if (!userModel.getFirstName().equals("Anonyme")){
+                        updatedScores.exerciseIsDone(mathCatModel.getId());
                         updatedScores.computeMathScore();
                         mDb.getAppDatabase().scoresDAO().update(updatedScores);
                     }
@@ -299,6 +298,9 @@ public class MathActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ScoresTrackerModel scoresModel) {
                 super.onPostExecute(scoresModel);
+                bundle.putParcelable("scores", scoresModel);
+                stopTimer();
+                goToWinActivity();
             }
         }
 

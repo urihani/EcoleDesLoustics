@@ -16,6 +16,7 @@ import com.example.ecoledesloustics.quiz.QuizCategoryModel;
 import com.example.ecoledesloustics.dashboard.DashBoardActivity;
 import com.example.ecoledesloustics.mathematics.MathsCategoryActivity;
 import com.example.ecoledesloustics.mathematics.MathsCategoryModel;
+import com.example.ecoledesloustics.scores.ScoresTrackerModel;
 import com.example.ecoledesloustics.settings.SettingsActivity;
 import com.example.ecoledesloustics.users_data.UserModel;
 
@@ -25,6 +26,7 @@ public class WinActivity extends AppCompatActivity {
     private MathsCategoryModel mathCat;
     private QuizCategoryModel quizCategoryModel;
     private GamesCategoryModel gameCategoryModel;
+    private ScoresTrackerModel scoresModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class WinActivity extends AppCompatActivity {
             mathCat = getIntent().getParcelableExtra("math_cat");
             quizCategoryModel = getIntent().getParcelableExtra("quiz_cat");
             gameCategoryModel = getIntent().getParcelableExtra("game_cat");
+            scoresModel = getIntent().getParcelableExtra("scores");
         }
 
         // user button
@@ -68,6 +71,7 @@ public class WinActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 final Intent intent;
                 bundle.putParcelable("user", userModel);
+                bundle.putParcelable("scores", scoresModel);
                 if (!(mathCat == null) &&
                         (mathCat.getCategory().equals("Multiplications") ||
                                 mathCat.getCategory().equals("Multiplications chronométrées") ||
