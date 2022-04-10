@@ -96,7 +96,7 @@ public class GamesCategoryActivity extends AppCompatActivity {
         // we are initializing our adapter class and passing our arraylist to it.
         GamesCategoryAdapter classicGamesCategoryAdapter = new GamesCategoryAdapter(this,
                 classicCategoryModel,
-                userModel);
+                userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -126,7 +126,7 @@ public class GamesCategoryActivity extends AppCompatActivity {
 
         // we are initializing our adapter class and passing our arraylist to it.
         GamesCategoryAdapter timedGamesCategoryAdapter = new GamesCategoryAdapter(this,
-                timedCategoryModel, userModel);
+                timedCategoryModel, userModel, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical

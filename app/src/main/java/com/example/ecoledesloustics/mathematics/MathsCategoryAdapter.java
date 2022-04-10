@@ -49,10 +49,11 @@ public class MathsCategoryAdapter extends RecyclerView.Adapter<MathsCategoryAdap
         holder.itemCategoryImg.setImageResource(model.getImg());
         if (scoreModel.getMathCompleted().contains(model.getId())){
             holder.checkedIV.setVisibility(View.VISIBLE);
+            holder.itemCategoryImg.setVisibility(View.INVISIBLE);
         } else {
             holder.checkedIV.setVisibility(View.INVISIBLE);
+            holder.itemCategoryImg.setVisibility(View.VISIBLE);
         }
-        int visibility = holder.checkedIV.getVisibility();
         holder.itemCategoryNameTV.setText(Integer.toString(model.getTotalQuestions()) + " " +
                 "questions");
         if (model.isTimed()) {

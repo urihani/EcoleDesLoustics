@@ -32,10 +32,10 @@
             android:id="@+id/idIVItemCategoryImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
-            android:contentDescription="Catégories"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Catégories"
             android:padding="5dp"
             android:src="@drawable/ic_launcher_foreground" />
 
@@ -72,10 +72,12 @@
             android:id="@+id/idIVChecked"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            app:srcCompat="@drawable/ic_checked"
-            android:visibility="invisible"/>
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_checked" />
 
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -89,7 +89,8 @@ public class DashBoardActivity extends AppCompatActivity {
                         scores.getMathProgress()));
                 dashBoardModelArrayList.add(new DashBoardModel(R.drawable.ic_quiz, "Culture générale",
                         scores.getCultureProgress()));
-                dashBoardModelArrayList.add(new DashBoardModel(R.drawable.ic_geography, "Géographie", scores.getGeographyProgress()));
+                dashBoardModelArrayList.add(new DashBoardModel(R.drawable.ic_map, "Géographie",
+                        scores.getGeographyProgress()));
                 dashBoardModelArrayList.add(new DashBoardModel(R.drawable.ic_puzzle, "Jeux",
                         scores.getGamesProgress()));
 

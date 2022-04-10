@@ -13,24 +13,27 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecoledesloustics.R;
+import com.example.ecoledesloustics.scores.ScoresTrackerModel;
 import com.example.ecoledesloustics.users_data.UserModel;
 
 import java.util.ArrayList;
 
-public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapter.Viewholder>{
+public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapter.Viewholder> {
     private Context context;
     private UserModel userModel;
+    private ScoresTrackerModel scoreModel;
     private ArrayList<QuizCategoryModel> quizCategoryModelArrayList;
     private String typeOfQuiz;
 
     // Constructor
     public QuizCategoryAdapter(Context context,
                                ArrayList<QuizCategoryModel> quizCategoryModelArrayList,
-                               UserModel userModel, String typeOfQuiz) {
+                               UserModel userModel, String typeOfQuiz, ScoresTrackerModel scoreModel) {
         this.context = context;
         this.quizCategoryModelArrayList = quizCategoryModelArrayList;
         this.userModel = userModel;
         this.typeOfQuiz = typeOfQuiz;
+        this.scoreModel = scoreModel;
     }
 
     @NonNull
@@ -47,6 +50,16 @@ public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapte
         QuizCategoryModel model = quizCategoryModelArrayList.get(position);
         holder.itemCategoryImg.setImageResource(model.getImg());
         holder.itemCategoryNameTV.setText(model.getTitle());
+        if (scoreModel.getCultureCompleted().contains(model.getId())) {
+            holder.checkedIV.setVisibility(View.VISIBLE);
+            holder.itemCategoryImg.setVisibility(View.INVISIBLE);
+        } else if (scoreModel.getGeographyCompleted().contains(model.getId())) {
+            holder.checkedIV.setVisibility(View.VISIBLE);
+            holder.itemCategoryImg.setVisibility(View.INVISIBLE);
+        } else {
+            holder.checkedIV.setVisibility(View.INVISIBLE);
+            holder.itemCategoryImg.setVisibility(View.VISIBLE);
+        }
         if (model.isTimed()) {
             holder.clockIV.setVisibility(View.VISIBLE);
         }
@@ -76,7 +89,7 @@ public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapte
     // View holder class for initializing of
     // views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
-        private ImageView clockIV, itemCategoryImg;
+        private ImageView clockIV, itemCategoryImg, checkedIV;
         private TextView itemCategoryNameTV;
 
         public Viewholder(@NonNull View itemView) {
@@ -85,6 +98,7 @@ public class QuizCategoryAdapter extends RecyclerView.Adapter<QuizCategoryAdapte
             clockIV = itemView.findViewById(R.id.idIVClock);
             itemCategoryImg = itemView.findViewById(R.id.idIVItemCategoryImage);
             itemCategoryNameTV = itemView.findViewById(R.id.idTVItemCategoryName);
+            checkedIV = itemView.findViewById(R.id.idIVChecked);
         }
     }
 }

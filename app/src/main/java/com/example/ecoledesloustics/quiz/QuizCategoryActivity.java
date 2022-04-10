@@ -40,6 +40,7 @@ public class QuizCategoryActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         userModel = bundle.getParcelable("user");
         typeOfQuiz = bundle.getString("typeOfQuiz");
+        scoresModel = bundle.getParcelable("scores");
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -89,14 +90,23 @@ public class QuizCategoryActivity extends AppCompatActivity {
         // adding data to classic culture activity
         classicCategoryRV = findViewById(R.id.idRVclassicCategory);
         classicCategoryModel = new ArrayList<>();
-        classicCategoryModel.add(new QuizCategoryModel(0, "France", R.drawable.ic_easy, 5,
+        classicCategoryModel.add(new QuizCategoryModel(11, "Capitales 1",
+                R.drawable.ic_globe, 5,
+                false, 0,
+                "Geographie"));
+        classicCategoryModel.add(new QuizCategoryModel(12, "Capitales 2",
+                R.drawable.ic_geography, 5,
+                false, 0,
+                "Geographie"));
+        classicCategoryModel.add(new QuizCategoryModel(13, "Capitales 3",
+                R.drawable.ic_geography2, 5,
                 false, 0,
                 "Geographie"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         QuizCategoryAdapter classicQuizCategoryAdapter = new QuizCategoryAdapter(this,
                 classicCategoryModel,
-                userModel, typeOfQuiz);
+                userModel, typeOfQuiz, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -111,13 +121,21 @@ public class QuizCategoryActivity extends AppCompatActivity {
         // adding data to timed activity
         timedCategoryRV = findViewById(R.id.idRVTimedCategory);
         timedCategoryModel = new ArrayList<>();
-        timedCategoryModel.add(new QuizCategoryModel(1, "France", R.drawable.ic_easy, 5,
+        timedCategoryModel.add(new QuizCategoryModel(14, "Capitales 1", R.drawable.ic_globe, 5,
+                true, 46,
+                "Geographie chronométrée"));
+        timedCategoryModel.add(new QuizCategoryModel(15, "Capitales 2",
+                R.drawable.ic_geography, 5,
+                true, 46,
+                "Geographie chronométrée"));
+        timedCategoryModel.add(new QuizCategoryModel(16, "Capitales 3",
+                R.drawable.ic_geography2, 5,
                 true, 46,
                 "Geographie chronométrée"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         QuizCategoryAdapter timedQuizCategoryAdapter = new QuizCategoryAdapter(this,
-                timedCategoryModel, userModel, typeOfQuiz);
+                timedCategoryModel, userModel, typeOfQuiz, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -134,14 +152,26 @@ public class QuizCategoryActivity extends AppCompatActivity {
         // adding data to classic culture activity
         classicCategoryRV = findViewById(R.id.idRVclassicCategory);
         classicCategoryModel = new ArrayList<>();
-        classicCategoryModel.add(new QuizCategoryModel(2, "Ecologie", R.drawable.ic_easy, 5,
+        classicCategoryModel.add(new QuizCategoryModel(1, "Ecologie", R.drawable.ic_ecology, 5,
+                false, 0,
+                "Culture"));
+        classicCategoryModel.add(new QuizCategoryModel(2, "Mythologie", R.drawable.ic_mythology, 5,
+                false, 0,
+                "Culture"));
+        classicCategoryModel.add(new QuizCategoryModel(3, "Prehistoire", R.drawable.ic_caveman, 5,
+                false, 0,
+                "Culture"));
+        classicCategoryModel.add(new QuizCategoryModel(4, "Stars", R.drawable.ic_celebrity, 5,
+                false, 0,
+                "Culture"));
+        classicCategoryModel.add(new QuizCategoryModel(5, "Heros", R.drawable.ic_superhero, 5,
                 false, 0,
                 "Culture"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         QuizCategoryAdapter classicQuizCategoryAdapter = new QuizCategoryAdapter(this,
                 classicCategoryModel,
-                userModel, typeOfQuiz);
+                userModel, typeOfQuiz, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
@@ -156,13 +186,25 @@ public class QuizCategoryActivity extends AppCompatActivity {
         // adding data to timed activity
         timedCategoryRV = findViewById(R.id.idRVTimedCategory);
         timedCategoryModel = new ArrayList<>();
-        timedCategoryModel.add(new QuizCategoryModel(3, "Ecologie", R.drawable.ic_easy, 5,
+        timedCategoryModel.add(new QuizCategoryModel(6, "Ecologie", R.drawable.ic_ecology, 5,
+                true, 46,
+                "Culture chronométrée"));
+        timedCategoryModel.add(new QuizCategoryModel(7, "Mythologie", R.drawable.ic_mythology, 5,
+                true, 46,
+                "Culture chronométrée"));
+        timedCategoryModel.add(new QuizCategoryModel(8, "Prehistoire", R.drawable.ic_caveman, 5,
+                true, 46,
+                "Culture chronométrée"));
+        timedCategoryModel.add(new QuizCategoryModel(9, "Stars", R.drawable.ic_celebrity, 5,
+                true, 46,
+                "Culture chronométrée"));
+        timedCategoryModel.add(new QuizCategoryModel(10, "Heros", R.drawable.ic_superhero, 5,
                 true, 46,
                 "Culture chronométrée"));
 
         // we are initializing our adapter class and passing our arraylist to it.
         QuizCategoryAdapter timedQuizCategoryAdapter = new QuizCategoryAdapter(this,
-                timedCategoryModel, userModel, typeOfQuiz);
+                timedCategoryModel, userModel, typeOfQuiz, scoresModel);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical

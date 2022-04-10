@@ -89,8 +89,6 @@ public class MemoryActivity extends AppCompatActivity {
                             manageCorrectAnswer();
                             if (game.checkWin()) {
                                 updateScores();
-                                stopTimer();
-                                goToWinActivity();
                             }
                         } else {
                             manageWrongAnswer();
@@ -328,6 +326,9 @@ public class MemoryActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ScoresTrackerModel scoresModel) {
                 super.onPostExecute(scoresModel);
+                bundle.putParcelable("scores", scoresModel);
+                stopTimer();
+                goToWinActivity();
             }
         }
 

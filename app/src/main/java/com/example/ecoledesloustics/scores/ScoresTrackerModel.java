@@ -68,10 +68,6 @@ public class ScoresTrackerModel implements Parcelable {
     @ColumnInfo(name = "logic_progress")
     private int gamesProgress;
 
-    @NonNull
-    @ColumnInfo(name = "math_exercises_completed")
-    private HashMap<Long, Boolean> mathExercisesCompleted;
-
     public ScoresTrackerModel(long userId) {
         this.userId = userId;
 
@@ -89,8 +85,6 @@ public class ScoresTrackerModel implements Parcelable {
         cultureCompleted = new ArrayList<>();
         geographyCompleted = new ArrayList<>();
         gamesCompleted = new ArrayList<>();
-
-        mathExercisesCompleted = new HashMap<>();
     }
 
     protected ScoresTrackerModel(Parcel in) {
@@ -115,8 +109,6 @@ public class ScoresTrackerModel implements Parcelable {
         cultureCompleted = (ArrayList<Long>) in.readSerializable();
         geographyCompleted = (ArrayList<Long>) in.readSerializable();
         gamesCompleted = (ArrayList<Long>) in.readSerializable();
-
-        mathExercisesCompleted = (HashMap<Long, Boolean>) in.readSerializable();
     }
 
     @Override
@@ -143,8 +135,6 @@ public class ScoresTrackerModel implements Parcelable {
         dest.writeSerializable(this.cultureCompleted);
         dest.writeSerializable(this.geographyCompleted);
         dest.writeSerializable(this.gamesCompleted);
-
-        dest.writeSerializable(this.mathExercisesCompleted);
     }
 
     @Override
@@ -174,12 +164,6 @@ public class ScoresTrackerModel implements Parcelable {
             } else {
                 mathProgress += mathIncrementValue;
             }
-        }
-    }
-
-    public void exerciseIsDone(Long id){
-        if (!mathExercisesCompleted.containsKey(id)){
-            mathExercisesCompleted.put(id, true);
         }
     }
 
@@ -336,14 +320,5 @@ public class ScoresTrackerModel implements Parcelable {
 
     public void setGamesProgress(int gamesProgress) {
         this.gamesProgress = gamesProgress;
-    }
-
-    @NonNull
-    public HashMap<Long, Boolean> getMathExercisesCompleted() {
-        return mathExercisesCompleted;
-    }
-
-    public void setMathExercisesCompleted(@NonNull HashMap<Long, Boolean> mathExercisesCompleted) {
-        this.mathExercisesCompleted = mathExercisesCompleted;
     }
 }

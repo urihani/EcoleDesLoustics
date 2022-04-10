@@ -16,6 +16,7 @@ import com.example.ecoledesloustics.R;
 import com.example.ecoledesloustics.mathematics.MathActivity;
 import com.example.ecoledesloustics.mathematics.MathsCategoryAdapter;
 import com.example.ecoledesloustics.mathematics.MathsCategoryModel;
+import com.example.ecoledesloustics.scores.ScoresTrackerModel;
 import com.example.ecoledesloustics.users_data.UserModel;
 
 import java.util.ArrayList;
@@ -23,15 +24,17 @@ import java.util.ArrayList;
 public class GamesCategoryAdapter extends RecyclerView.Adapter<GamesCategoryAdapter.Viewholder>{
     private Context context;
     private UserModel userModel;
+    private ScoresTrackerModel scoreModel;
     private ArrayList<GamesCategoryModel> gamesCategoryModelArrayList;
 
     // Constructor
     public GamesCategoryAdapter(Context context,
                                 ArrayList<GamesCategoryModel> gamesCategoryModelArrayList,
-                                UserModel userModel) {
+                                UserModel userModel, ScoresTrackerModel scoreModel) {
         this.context = context;
         this.gamesCategoryModelArrayList = gamesCategoryModelArrayList;
         this.userModel = userModel;
+        this.scoreModel = scoreModel;
     }
 
     @NonNull
@@ -48,6 +51,13 @@ public class GamesCategoryAdapter extends RecyclerView.Adapter<GamesCategoryAdap
         GamesCategoryModel model = gamesCategoryModelArrayList.get(position);
         holder.itemCategoryImg.setImageResource(model.getImg());
         holder.itemCategoryNameTV.setText(model.getTitle());
+        if (scoreModel.getGamesCompleted().contains(model.getId())){
+            holder.checkedIV.setVisibility(View.VISIBLE);
+            holder.itemCategoryImg.setVisibility(View.INVISIBLE);
+        } else {
+            holder.checkedIV.setVisibility(View.INVISIBLE);
+            holder.itemCategoryImg.setVisibility(View.VISIBLE);
+        }
         if (model.isTimed()) {
             holder.clockIV.setVisibility(View.VISIBLE);
         }
@@ -76,7 +86,7 @@ public class GamesCategoryAdapter extends RecyclerView.Adapter<GamesCategoryAdap
     // View holder class for initializing of
     // views such as TextView and Imageview.
     public class Viewholder extends RecyclerView.ViewHolder {
-        private ImageView clockIV, itemCategoryImg;
+        private ImageView clockIV, itemCategoryImg, checkedIV;
         private TextView itemCategoryNameTV;
 
         public Viewholder(@NonNull View itemView) {
@@ -85,6 +95,7 @@ public class GamesCategoryAdapter extends RecyclerView.Adapter<GamesCategoryAdap
             clockIV = itemView.findViewById(R.id.idIVClock);
             itemCategoryImg = itemView.findViewById(R.id.idIVItemCategoryImage);
             itemCategoryNameTV = itemView.findViewById(R.id.idTVItemCategoryName);
+            checkedIV = itemView.findViewById(R.id.idIVChecked);
         }
     }
 }

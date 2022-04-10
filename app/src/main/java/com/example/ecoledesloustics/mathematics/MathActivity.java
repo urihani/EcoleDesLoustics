@@ -12,11 +12,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ecoledesloustics.R;
 import com.example.ecoledesloustics.db.DatabaseClient;
 import com.example.ecoledesloustics.end_game.LoseActivity;
 import com.example.ecoledesloustics.end_game.WinActivity;
+import com.example.ecoledesloustics.quiz.QuizActivity;
 import com.example.ecoledesloustics.scores.ScoresTrackerModel;
 import com.example.ecoledesloustics.settings.SettingsActivity;
 import com.example.ecoledesloustics.users_data.UserModel;
@@ -72,7 +74,12 @@ public class MathActivity extends AppCompatActivity {
 
                 int selectedAnswer = Integer.parseInt(clickedBT.getText().toString());
                 currentQuestion++;
-                game.checkAnswer(selectedAnswer);
+
+                if (!game.checkAnswer(selectedAnswer)){
+                    Toast.makeText(MathActivity.this,
+                            "Dommage ! La bonne réponse était : " + game.getCurrentQuestion().getAnswer(),
+                            Toast.LENGTH_SHORT).show();
+                }
 
                 if (game.checkEndGame()) {
                     if (game.checkWin()) {
@@ -153,6 +160,10 @@ public class MathActivity extends AppCompatActivity {
         answer1.setEnabled(false);
         answer2.setEnabled(false);
         answer3.setEnabled(false);
+        answer0.setText("");
+        answer1.setText("");
+        answer2.setText("");
+        answer3.setText("");
     }
 
     private void clickOnUserButton() {
@@ -284,9 +295,8 @@ public class MathActivity extends AppCompatActivity {
 
                 if (!updatedScores.getMathCompleted().contains(mathCatModel.getId())) {
                     updatedMathCompleted.add(mathCatModel.getId());
-                    updatedScores.setMathCompleted(updatedMathCompleted);
-                    if (!userModel.getFirstName().equals("Anonyme")){
-                        updatedScores.exerciseIsDone(mathCatModel.getId());
+                    if (!userModel.getFirstName().equals("Anonyme")) {
+                        updatedScores.setMathCompleted(updatedMathCompleted);
                         updatedScores.computeMathScore();
                         mDb.getAppDatabase().scoresDAO().update(updatedScores);
                     }

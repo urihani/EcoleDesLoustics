@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -80,13 +81,16 @@ public class QuizActivity extends AppCompatActivity {
                 Button clickedBT = (Button) view;
                 String selectedAnswer = clickedBT.getText().toString();
                 currentQuestion++;
-                game.checkAnswer(selectedAnswer);
+
+                if (!game.checkAnswer(selectedAnswer)){
+                    Toast.makeText(QuizActivity.this,
+                            "Dommage ! La bonne réponse était : " + game.getCurrentQuestion().getAnswer(),
+                            Toast.LENGTH_SHORT).show();
+                }
 
                 if (game.checkEndGame()) {
                     if (game.checkWin()) {
                         updateScores();
-                        stopTimer();
-                        goToWinActivity();
                     } else {
                         stopTimer();
                         resetExercise();
@@ -189,6 +193,10 @@ public class QuizActivity extends AppCompatActivity {
         answer1.setEnabled(false);
         answer2.setEnabled(false);
         answer3.setEnabled(false);
+        answer0.setText("");
+        answer1.setText("");
+        answer2.setText("");
+        answer3.setText("");
     }
 
     private void goToSettingsActivity(View view) {
@@ -228,6 +236,10 @@ public class QuizActivity extends AppCompatActivity {
         answer1 = findViewById(R.id.idBTAnswer1);
         answer2 = findViewById(R.id.idBTAnswer2);
         answer3 = findViewById(R.id.idBTAnswer3);
+        answer0.setText("");
+        answer1.setText("");
+        answer2.setText("");
+        answer3.setText("");
     }
 
     private void goToLoseActivity() {
@@ -307,14 +319,18 @@ public class QuizActivity extends AppCompatActivity {
 
                 if (!updatedScores.getCultureCompleted().contains(quizCategoryModel.getId()) && typeOfQuiz.equals("Culture générale")) {
                     updatedCultureCompleted.add(quizCategoryModel.getId());
-                    updatedScores.setCultureCompleted(updatedCultureCompleted);
-                    updatedScores.computeCultureScore();
-                    mDb.getAppDatabase().scoresDAO().update(updatedScores);
-                } else if (!updatedScores.getGeographyCompleted().contains(quizCategoryModel.getId()) && typeOfQuiz.equals("Géographie")){
+                    if (!userModel.getFirstName().equals("Anonyme")) {
+                        updatedScores.setCultureCompleted(updatedCultureCompleted);
+                        updatedScores.computeCultureScore();
+                        mDb.getAppDatabase().scoresDAO().update(updatedScores);
+                    }
+                } else if (!updatedScores.getGeographyCompleted().contains(quizCategoryModel.getId()) && typeOfQuiz.equals("Géographie")) {
                     updatedGeographyCompleted.add(quizCategoryModel.getId());
-                    updatedScores.setGeographyCompleted(updatedGeographyCompleted);
-                    updatedScores.computeGeographyScore();
-                    mDb.getAppDatabase().scoresDAO().update(updatedScores);
+                    if (!userModel.getFirstName().equals("Anonyme")) {
+                        updatedScores.setGeographyCompleted(updatedGeographyCompleted);
+                        updatedScores.computeGeographyScore();
+                        mDb.getAppDatabase().scoresDAO().update(updatedScores);
+                    }
                 }
 
                 return updatedScores;
@@ -323,6 +339,9 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(ScoresTrackerModel scoresModel) {
                 super.onPostExecute(scoresModel);
+                bundle.putParcelable("scores", scoresModel);
+                stopTimer();
+                goToWinActivity();
             }
         }
 
@@ -347,10 +366,28 @@ public class QuizActivity extends AppCompatActivity {
                 super.onPostExecute(exercisesData);
                 getObjectsFromIntent();
                 if (quizCategoryModel.getTitle().equals("Ecologie")) {
-                    questions = new HashMap<>(exercisesData.getCultureEcologyQuestions());
+                    questions = new HashMap<>(exercisesData.getCultureQuestions1());
                     executeActivity();
-                } else if (quizCategoryModel.getTitle().equals("France")){
-                    questions = new HashMap<>(exercisesData.getGeography1Questions());
+                } else if (quizCategoryModel.getTitle().equals("Mythologie")) {
+                    questions = new HashMap<>(exercisesData.getCultureQuestions2());
+                    executeActivity();
+                } else if (quizCategoryModel.getTitle().equals("Prehistoire")) {
+                    questions = new HashMap<>(exercisesData.getCultureQuestions3());
+                    executeActivity();
+                } else if (quizCategoryModel.getTitle().equals("Stars")) {
+                    questions = new HashMap<>(exercisesData.getCultureQuestions4());
+                    executeActivity();
+                } else if (quizCategoryModel.getTitle().equals("Heros")) {
+                    questions = new HashMap<>(exercisesData.getCultureQuestions5());
+                    executeActivity();
+                } else if (quizCategoryModel.getTitle().equals("Capitales 1")) {
+                    questions = new HashMap<>(exercisesData.getGeographyQuestions1());
+                    executeActivity();
+                } else if (quizCategoryModel.getTitle().equals("Capitales 2")) {
+                    questions = new HashMap<>(exercisesData.getGeographyQuestions2());
+                    executeActivity();
+                } else if (quizCategoryModel.getTitle().equals("Capitales 3")) {
+                    questions = new HashMap<>(exercisesData.getGeographyQuestions3());
                     executeActivity();
                 }
             }
