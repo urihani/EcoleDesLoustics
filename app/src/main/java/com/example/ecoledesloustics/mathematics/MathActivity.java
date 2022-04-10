@@ -80,6 +80,7 @@ public class MathActivity extends AppCompatActivity {
                         stopTimer();
                         goToWinActivity();
                     } else {
+                        disableAnswerButtons();
                         stopTimer();
                         resetExercise();
                         goToLoseActivity();
