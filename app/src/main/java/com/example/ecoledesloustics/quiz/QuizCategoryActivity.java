@@ -35,7 +35,7 @@ public class QuizCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_culture_category);
+        setContentView(R.layout.activity_quiz_category);
 
         Bundle bundle = getIntent().getExtras();
         userModel = bundle.getParcelable("user");
